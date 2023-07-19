@@ -1,7 +1,8 @@
 # NITHsensors
 
-A collection of firmwares for some Open-Source Hardware sensor peripherals dedicated to Accessibility
-Here you can download the necessary files to reproduce those sensors on your own, DIY.
+A collection of firmwares for some Open-Source Hardware sensor peripherals dedicated to Accessibility.
+
+In this repo are found the necessary files to reproduce those sensors on your own, DIY.
 
 ## Instructions for building
 
