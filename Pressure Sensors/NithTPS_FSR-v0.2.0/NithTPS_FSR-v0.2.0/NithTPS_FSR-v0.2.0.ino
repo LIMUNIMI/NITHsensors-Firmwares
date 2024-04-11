@@ -1,25 +1,31 @@
-int LEDc = 2;
-
 /* Definition of constants */
 #define SAMPLING_DELAY_MS (5)
-#define SENSOR_NAME ("NithBS_5010DP-0.2.0")
-#define MAX 933
-#define DEADZONE 80
+#define SENSOR_NAME ("NithTPS_FSR-0.1.0")
+//#define MAX 400
+//#define DEADZONE 300
 
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(115200);
-  pinMode(LEDc, OUTPUT);
-  digitalWrite(LEDc, HIGH);
 }
 
 void loop() {
   
   int sensorValue = analogRead(A0); // read the input on analog pin 0
-  float voltage = sensorValue - DEADZONE;
+  float voltage = sensorValue;
+  
+  #ifdef DEADZONE
+  voltage -= DEADZONE;
   if(voltage < 0){
     voltage = 0;
   }
+  #endif
+  
+  #ifdef MAX
+  if(voltage > MAX){
+    voltage = MAX;
+  }
+  #endif
   
   /* Print output line */
   /* =============================================== */
@@ -36,9 +42,13 @@ void loop() {
   Serial.print("|");
   
   /* Values */
-  Serial.print("breath_press=");
+  Serial.print("teeth_press=");
   Serial.print(voltage, 0);
+  #ifdef MAX
   Serial.print("/");
   Serial.println(MAX);
+  #else
+  Serial.println();
+  #endif
   delay(SAMPLING_DELAY_MS);
 }
