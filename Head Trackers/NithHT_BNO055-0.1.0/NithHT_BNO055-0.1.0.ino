@@ -4,7 +4,7 @@
 #include <utility/imumaths.h>
 
 /* Definition of constants */
-#define SAMPLING_DELAY_MS (10)
+#define SAMPLING_DELAY_MS (20)
 #define SENSOR_NAME ("NithHT_BNO055-0.1.0")
 
 // Check I2C device address and correct line below (by default address is 0x29 or 0x28)
