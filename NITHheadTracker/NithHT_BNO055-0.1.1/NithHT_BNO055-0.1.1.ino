@@ -4,7 +4,7 @@
 #include <utility/imumaths.h>
 
 /* Definition of constants */
-#define SAMPLING_DELAY_MS (20)
+#define SAMPLING_DELAY_MS (15)
 #define SENSOR_NAME ("NithHT_BNO055-0.1.0")
 
 // Check I2C device address and correct line below (by default address is 0x29 or 0x28)
@@ -147,16 +147,18 @@ void loop(void)
 
   // Calibration status
   Serial.print("cal_sys=");
-  Serial.print(system, DEC);
-  Serial.print("&");
-  Serial.print("cal_gyro=");
-  Serial.print(gyro, DEC);
-  Serial.print("&");
-  Serial.print("cal_acc=");
-  Serial.print(accel, DEC);
-  Serial.print("&");
-  Serial.print("cal_mag=");
-  Serial.println(mag, DEC);
+  Serial.println(system, DEC);
+
+  // Old, deprecated calibration data
+  //Serial.print("&");
+  //Serial.print("cal_gyro=");
+  //Serial.print(gyro, DEC);
+  //Serial.print("&");
+  //Serial.print("cal_acc=");
+  //Serial.print(accel, DEC);
+  //Serial.print("&");
+  //Serial.print("cal_mag=");
+  //Serial.println(mag, DEC);
 
   delay(SAMPLING_DELAY_MS);
   }

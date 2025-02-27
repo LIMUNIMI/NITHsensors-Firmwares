@@ -2,7 +2,7 @@ int LEDc = 2;
 
 /* Definition of constants */
 #define SAMPLING_DELAY_MS (5)
-#define SENSOR_NAME ("NithBS_5010DP-0.2.0")
+#define SENSOR_NAME ("NITHbreathSensor_5010DP-0.2.0")
 #define MAX 933
 #define DEADZONE 80
 
